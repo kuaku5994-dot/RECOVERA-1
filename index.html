@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovera | Crypto Scam Recovery & Blockchain Forensics</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2b4b5a;
+            --primary-light: #3a6377;
+            --text-main: #111827;
+            --text-gray: #4b5563;
+            --bg-light: #f9fafb;
+            --trustpilot: #00b67a;
+            --whatsapp: #25D366;
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { 
+            font-family: var(--font-body); 
+            color: var(--text-main); 
+            background: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased; 
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* 导航栏 */
+        .navbar { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; border-bottom: 1px solid #eee; position: fixed; width: 100%; top: 0; 
+            background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); z-index: 1000; 
+        }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        /* 你的Logo位置，替换 src */
+        .brand-logo { width: 40px; height: 40px; object-fit: contain; }
+        .brand-text { font-family: var(--font-heading); font-size: 26px; font-weight: 700; letter-spacing: -1px; color: var(--text-main); }
+        
+        .nav-links { display: flex; gap: 20px; font-size: 14px; font-weight: 600; color: var(--text-gray); }
+        .nav-links a:hover { color: var(--primary); }
+        .trust-badge { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+        .trust-badge .star { color: var(--trustpilot); font-size: 16px; }
+
+        .navbar-placeholder { height: 75px; }
+
+        /* 首屏 Hero */
+        .hero { padding: 40px 5% 20px; max-width: 1200px; margin: 0 auto; }
+        .hero-box { 
+            background: linear-gradient(135deg, #1c333d 0%, #2b4b5a 100%); 
+            border-radius: 24px; padding: 60px; color: #ffffff; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: space-between; gap: 40px;
+        }
+        .hero-content { max-width: 650px; z-index: 2; }
+        .hero-tag { background: rgba(255,255,255,0.15); display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 13px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2); }
+        .hero h1 { font-family: var(--font-heading); font-size: 46px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; color: #ffffff; }
+        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 30px; }
+        
+        .hero-visual {
+            flex-shrink: 0; width: 320px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px; padding: 30px; text-align: center; z-index: 2;
+        }
+        .hero-visual h3 { font-size: 20px; margin-bottom: 10px; color: #fff; }
+        .hero-visual p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 0; }
+
+        .btn-primary { background: #fff; color: var(--primary); padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; cursor: pointer; border: none; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn-blue { background: var(--primary); color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; cursor: pointer; border: none; }
+        .btn-blue:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        /* 通用区块 */
+        .section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .bg-light { background: var(--bg-light); }
+        .section-title { font-family: var(--font-heading); font-size: 32px; font-weight: 700; margin-bottom: 20px; color: var(--text-main); }
+        .section-text { color: var(--text-gray); font-size: 16px; margin-bottom: 20px; line-height: 1.8; }
+        
+        .border-left { border-left: 4px solid var(--primary); padding-left: 24px; margin-bottom: 40px; }
+        
+        /* 为什么选择我们 */
+        .why-us { background: var(--primary); color: #fff; padding: 60px 5%; border-radius: 20px; margin: 40px 5%; }
+        .why-us .section-title { color: #fff; }
+        .why-us .section-text { color: rgba(255,255,255,0.85); }
+
+        /* 服务卡片网格 */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 30px; }
+        .service-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 30px; transition: 0.3s; }
+        .service-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: var(--primary-light); }
+        .service-badge { display: inline-block; background: #eef3ff; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 15px; }
+        .service-card h3 { font-family: var(--font-heading); font-size: 20px; margin-bottom: 15px; }
+        .service-card p { color: var(--text-gray); font-size: 14px; margin-bottom: 15px; }
+        .service-card ul { padding-left: 20px; list-style-type: disc; color: var(--text-gray); font-size: 14px; margin-bottom: 20px;}
+        .service-card ul li { margin-bottom: 8px; }
+
+        /* 律师板块的高端 Banner */
+        .evidence-banner {
+            background: linear-gradient(135deg, #111827 0%, #2b4b5a 100%);
+            border-radius: 20px; padding: 60px 40px; color: #fff; margin: 40px 0;
+            position: relative; display: flex; flex-direction: column; justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .evidence-badge {
+            position: absolute; top: 20px; right: 20px;
+            background: #fff; color: var(--primary); padding: 6px 16px;
+            border-radius: 20px; font-size: 13px; font-weight: 700;
+        }
+        .evidence-banner h2 { font-size: 38px; max-width: 600px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+        .evidence-banner p { color: rgba(255,255,255,0.8); font-size: 16px; }
+
+        /* 客户评价 */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .review-card { background: #fff; border: 1px solid #e5e7eb; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .stars { color: var(--trustpilot); font-size: 18px; margin-bottom: 10px; }
+        .review-title { font-weight: 700; font-size: 15px; margin-bottom: 10px; color: var(--text-main); }
+        .review-text { font-size: 14px; color: var(--text-gray); font-style: italic; margin-bottom: 15px; }
+        .review-author { font-size: 13px; font-weight: 600; color: #888; }
+
+        /* 专业律师图文卡片 */
+        .feature-row { display: flex; flex-wrap: wrap; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e5e7eb; margin-bottom: 30px; }
+        .feature-row.reverse { flex-direction: row-reverse; }
+        .feature-img { flex: 1 1 50%; min-height: 350px; background-size: cover; background-position: center; background-color: #eee; }
+        .feature-content { flex: 1 1 50%; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        .feature-content h3 { font-family: var(--font-heading); font-size: 24px; margin-bottom: 15px; color: var(--text-main); }
+        .feature-content ul { padding-left: 20px; color: var(--text-gray); font-size: 15px; margin-bottom: 15px; line-height: 1.8;}
+
+        /* 表单区域 */
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 40px; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-form-box { flex: 1; min-width: 300px; background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+        .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: var(--font-body); outline: none; transition: 0.2s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(43,75,90,0.1); }
+
+        /* FAQ */
+        .faq-item { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+        .faq-q { padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main); }
+        .faq-a { padding: 0 20px 20px 20px; color: var(--text-gray); display: none; font-size: 15px; }
+        .faq-item.active .faq-a { display: block; }
+        .faq-q::after { content: '+'; font-size: 20px; color: var(--primary); font-weight: 400; }
+        .faq-item.active .faq-q::after { content: '-'; }
+
+        /* CTA & 页脚 */
+        .cta-bottom { background: linear-gradient(135deg, var(--primary) 0%, #1e3540 100%); color: #fff; text-align: center; padding: 60px 20px; border-radius: 24px; margin: 40px 5%; }
+        .cta-bottom h2 { font-family: var(--font-heading); font-size: 32px; margin-bottom: 15px; }
+        .cta-bottom p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 30px; }
+
+        footer { border-top: 1px solid #eee; padding: 40px 5%; font-size: 14px; color: var(--text-gray); }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; margin-top: 40px; font-size: 12px; color: #999; }
+        .social-icons { display: flex; gap: 10px; }
+        .social-icons span { width: 36px; height: 36px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer; }
+
+        /* 悬浮 WhatsApp */
+        .whatsapp-float { 
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
+            background: var(--whatsapp); color: #fff; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 1000; transition: 0.3s; 
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; }
+
+        @media (max-width: 900px) {
+            .hero-box { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero-visual { width: 100%; margin-top: 20px; }
+            .nav-links, .trust-badge { display: none; }
+            .hero h1 { font-size: 32px; }
+            .feature-row, .feature-row.reverse { flex-direction: column; }
+            .feature-img { min-height: 250px; }
+            .feature-content { padding: 30px 20px; }
+            .evidence-banner { padding: 40px 20px; }
+            .evidence-banner h2 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <a href="#home" class="brand">
+            <img src="logo.png" alt="Logo" class="brand-logo">
+            <span class="brand-text">Recovera</span>
+        </a>
+        
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#history">Our History</a>
+            <a href="#services">Services</a>
+            <a href="#lawyers">Lawyers</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="trust-badge">
+            <span class="star">★</span> TrustPilot "Excellent" - 4.7
+        </div>
+    </nav>
+
+    <div class="navbar-placeholder"></div>
+
+    <!-- ==================== 首页 (Home) ==================== -->
+    <section id="home">
+        <header class="hero">
+            <div class="hero-box">
+                <div class="hero-content">
+                    <div class="hero-tag">● Response in less than 24h</div>
+                    <h1>Recover your stolen cryptocurrencies</h1>
+                    <p><strong>Recover your cryptocurrencies with experts in tracing and scam investigation.</strong> If you have been a victim of a cryptocurrency scam, our team specialized in blockchain forensic analysis and transaction tracing investigates fraud, online scams, and digital asset theft to identify the flow of funds and generate technical reports that can be used in complaints and legal proceedings.</p>
+                    <!-- 所有按钮指向你的WhatsApp -->
+                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">Free Analysis – Recover Stolen Crypto ↗</a>
+                </div>
+                <div class="hero-visual">
+                    <h3>Forensic Analysis</h3>
+                    <p>Professional tools used by global security agencies.</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="section">
+            <div class="border-left">
+                <h2 class="section-title">Specialists in advanced blockchain analysis</h2>
+                <p class="section-text">We don't limit ourselves to basic wallet tracking. Our team analyzes transactions on public blockchain ledgers, cross-chain bridges, and mixers to reconstruct the flow of funds. This analysis allows us to identify connections, movement patterns, and potential concealment attempts that often go unnoticed in conventional investigations.</p>
+            </div>
+            <div class="border-left">
+                <h2 class="section-title">State-of-the-art forensic techniques</h2>
+                <p class="section-text">At Recovera, we use professional blockchain forensic analysis platforms employed by security agencies and investigative bodies worldwide. These include tools such as Crystal Intelligence and Breadcrumbs, along with other specialized solutions for crypto-asset traceability, transaction analysis, and detection of suspicious activities.</p>
+            </div>
+            <div class="border-left">
+                <h2 class="section-title">Extensive experience in fraud investigation</h2>
+                <p class="section-text">Our experience in investigating financial frauds and online scams allows us to understand how criminal networks operate in the digital ecosystem. Using blockchain analysis and OSINT techniques, we identify fraud patterns, connections between wallets, and potential actors involved to track stolen funds and reconstruct the structure of the fraud.</p>
+            </div>
+            <div class="border-left">
+                <h2 class="section-title">Reports valid for legal proceedings</h2>
+                <p class="section-text">Every investigation is documented following rigorous technical and evidentiary criteria. We prepare detailed forensic reports that can be used by lawyers, law enforcement, and regulatory bodies, facilitating the filing of complaints and the development of legal actions related to cryptocurrency scams.</p>
+            </div>
+        </div>
+
+        <div class="why-us">
+            <h2 class="section-title">Why choose experts in cryptocurrency tracing?</h2>
+            <p class="section-text">Recovering stolen cryptocurrencies is not just about following the trail of transactions on the blockchain. It requires rigorous forensic analysis to reconstruct the path of funds, identify the fraudster, and document the evidence needed to initiate legal action. Only 13.8% of cybercrimes are solved. Without identifying the scammer and proving how the fraud occurred, recovering the money becomes much more difficult.</p>
+            <p class="section-text">At Recovera, we combine blockchain research, OSINT analysis, and fraud investigation experience to identify involved wallets, detect movement patterns, and trace digital assets. With all this information, we prepare solid technical reports that allow victims to accredit the fraud, facilitate the filing of complaints, and provide useful evidence in legal proceedings to increase the chances of recovering stolen cryptocurrencies.</p>
+        </div>
+
+        <div class="section bg-light">
+            <h2 class="section-title">Excellent on Trustpilot</h2>
+            <p class="section-text" style="margin-bottom: 10px;">
+                <span style="color: var(--trustpilot); font-size: 24px;">★★★★★</span> <br>
+                Rated 4.7 out of 5 based on 30 reviews
+            </p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-title">Tailored and professional service...</div>
+                    <div class="review-text">"Tailored and professional service from the very first minute. When I received the report, the result was amazing due to the detail. 100% recommended."</div>
+                    <div class="review-author">By Boned Ibiza</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-title">From the first moment they speak clearly...</div>
+                    <div class="review-text">"They speak clearly and professionally, not leaving you alone throughout the process. I must highlight the work of Rodrigo and his team, making this hard process easier."</div>
+                    <div class="review-author">By Antonio Herrera Mellado</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-title">100% recommended!!!</div>
+                    <div class="review-text">"From minute 0, the trust that RECOVERA transmits is absolute. The report is super complete, analytical, and professional."</div>
+                    <div class="review-author">By Xavier</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 历史 (Our History) ==================== -->
+    <section id="history" class="bg-light">
+        <div class="section">
+            <h2 class="section-title">Our history — Specialists in digital fraud investigation and crypto asset tracing</h2>
+            
+            <p class="section-text"><strong>Our history and mission at Recovera</strong></p>
+            <p class="section-text">At Recovera, we are a team of young experts in economics, digital forensics, and cryptocurrency traceability, motivated by a personal experience with crypto scams. Seeing how people close to us lost money and received no clear or effective help, we decided to form an organization specialized in tracing stolen digital assets and supporting victims of online fraud.</p>
+            <p class="section-text">Unlike those who claim "miraculous" recoveries, at Recovera we use serious investigation methodologies and forensic technical analysis to reconstruct the route of the funds, providing transparent and useful information to understand what really happened.</p>
+            
+            <p class="section-text" style="margin-top: 30px;"><strong>How Recovera was born</strong></p>
+            <p class="section-text">After hearing phrases like "you've lost it, it can't be found" at police stations, we realized that <em>it is possible to find valuable clues</em> in digital transactions through blockchain analysis techniques and coordination with legal professionals. Thus Recovera was born, with the mission of helping individuals and companies affected by cryptocurrency scams, online financial fraud, forex, and other digital crimes.</p>
+            
+            <p class="section-text" style="margin-top: 30px;"><strong>The importance of acting fast</strong></p>
+            <p class="section-text">Digital scams are growing in sophistication and volume. In Spain and Europe, every year thousands of cases of fraud with cryptocurrencies and other digital assets leave victims without resources or clear information. Recovering and understanding what happened can make the difference to move forward legally or manage resources wisely.</p>
+            <p class="section-text">At Recovera we help identify suspicious transactions, analyze forensic patterns, and offer clear technical reports that can be useful for legal actions or complaints before competent authorities.</p>
+            
+            <p class="section-text" style="margin-top: 30px;"><strong>We work with you from the first consultation</strong></p>
+            <p class="section-text">If you have suffered a digital or crypto scam and want to understand what happened to your funds, our team is ready to analyze your case and offer you transparent information, expert advice, and a feasibility study in less than 24 hours.</p>
+        </div>
+    </section>
+
+    <!-- ==================== 服务 (Services) - 补全了你刚发来的完整服务列表 ==================== -->
+    <section id="services">
+        <div class="section">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div class="service-badge">Legal Validity Reports</div>
+                <h2 class="section-title" style="font-size: 36px;">Digital Investigation, Forensic & Compliance Solutions</h2>
+                <p class="section-text" style="max-width: 800px; margin: 0 auto;">We unify blockchain technology, OSINT intelligence, and financial rigor to protect your assets and provide technical evidence with legal validity.</p>
+                <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20a%20free%20feasibility%20study%20for%20my%20case." target="_blank" class="btn-blue" style="margin-top: 20px;">Request Free Feasibility Study ↗</a>
+            </div>
+
+            <div class="services-grid">
+                <!-- 服务 1 -->
+                <div class="service-card">
+                    <div class="service-badge">Forensic Crypto</div>
+                    <h3>Cryptocurrency Scam Investigation</h3>
+                    <p>We investigate scams and frauds related to cryptocurrencies, such as fake investment opportunities, fraudulent platforms, exchange impersonation, or phishing attacks on digital wallets. We analyze in detail how the fraud occurred: what type of access was obtained, what permissions were granted, and how the funds moved within the blockchain.</p>
+                    <ul>
+                        <li>Complete investigation on the blockchain of your stolen crypto.</li>
+                        <li>Detailed tracking of each transaction and wallet movement.</li>
+                        <li>Technical report with legal validity for courts.</li>
+                        <li>Clear explanation and practical recommendations.</li>
+                    </ul>
+                </div>
+
+                <!-- 服务 2 -->
+                <div class="service-card">
+                    <div class="service-badge">Intelligence OSINT</div>
+                    <h3>OSINT Investigations & Digital Attribution</h3>
+                    <p>We conduct OSINT investigations applied to digital and financial fraud, using publicly available information on the internet. We analyze domains, social networks, platforms, digital identities, and connections between actors to identify patterns and possible perpetrators.</p>
+                    <ul>
+                        <li>Analysis of digital profiles, domains, and IP addresses.</li>
+                        <li>Correlation of identities and digital activities.</li>
+                        <li>Investigation of bank transfers, identity theft, and threats.</li>
+                        <li>Preservation of online evidence and digital fingerprinting.</li>
+                    </ul>
+                </div>
+
+                <!-- 服务 3 -->
+                <div class="service-card">
+                    <div class="service-badge">Forex & Markets</div>
+                    <h3>Forex and Online Trading Fraud</h3>
+                    <p>We investigate scams in Forex and online trading platforms, including unregulated brokers, withdrawal blocks, account manipulation, or impersonation of legitimate entities. We review documentation, communications, and platform structure to determine if there are clear indications of fraud.</p>
+                    <ul>
+                        <li>Exhaustive research on Forex operations and losses.</li>
+                        <li>Analysis of trading accounts, brokers, and history.</li>
+                        <li>Identification of fraudulent practices and unregulated brokers.</li>
+                        <li>Financial-technical report with legal validity.</li>
+                    </ul>
+                </div>
+
+                <!-- 服务 4 -->
+                <div class="service-card">
+                    <div class="service-badge">Online Gaming & Casinos</div>
+                    <h3>Fund Recovery in Casinos and Online Gaming</h3>
+                    <p>In collaboration with specialized law firms, we address the legal route to recover money retained or lost in online casinos and betting houses. We act in two scenarios: licensed operators that block balances or impose abusive limitations, and unlicensed or fraudulent platforms.</p>
+                    <ul>
+                        <li>Fund recovery with technical and legal basis.</li>
+                        <li>Documentation valid before courts.</li>
+                        <li>Real pressure on the operator.</li>
+                        <li>Coverage against unlicensed platforms.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 律师 (Lawyers) ==================== -->
+    <section id="lawyers" class="bg-light">
+        <div class="section">
+            <h2 class="section-title" style="text-align: center;">Do you need a lawyer or legal defense?</h2>
+            <p class="section-text" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">If you have been a victim of a scam, you may need specialized legal advice. At Recovera, we collaborate with a network of partner law firms with experience in digital fraud.</p>
+            
+            <div class="evidence-banner">
+                <span class="evidence-badge">Evidence Recovered</span>
+                <h2>From digital trail to solid evidence</h2>
+                <p>Our forensic experts and legal partners work together to build a robust case for court.</p>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-img" style="background-image: url('https://recovera.es/wp-content/uploads/2026/02/trabajo-equipo-mirando-adelante_1098-14486.jpg');"></div>
+                <div class="feature-content">
+                    <h3>A simple and transparent process</h3>
+                    <ul style="list-style: disc;">
+                        <li><strong>Preliminary analysis:</strong> We evaluate your situation in a free and personalized way.</li>
+                        <li><strong>Specialized connection:</strong> We put you in contact with the firm that best suits your needs.</li>
+                        <li><strong>Direct contact:</strong> You schedule a call directly with your lawyer.</li>
+                        <li><strong>Total transparency:</strong> No unnecessary intermediaries.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="feature-img" style="background-image: url('https://recovera.es/wp-content/uploads/2026/02/gente-tiro-medio-haciendo-su-trabajo_23-2149622852.jpg');"></div>
+                <div class="feature-content">
+                    <h3>Designed for your peace of mind</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">We know that facing a scam generates doubts and uncertainty. That's why we work with a network of collaborating firms that share a professional, transparent, and victim-oriented approach.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20to%20contact%20a%20professional%20lawyer." target="_blank" class="btn-blue" style="align-self: flex-start;">Contact a professional lawyer ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 联系 (Contact) ==================== -->
+    <section id="contact">
+        <div class="section">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="section-title">Have you been scammed?</h2>
+                    <p class="section-text">Request your free study. Before initiating any legal or technical action, we determine the real possibilities of tracing and recovering your assets. At no cost and under strict confidentiality.</p>
+                </div>
+
+                <!-- 表单区域 -->
+                <div class="contact-form-box">
+                    <h3 style="margin-bottom: 20px; font-family: var(--font-heading);">Request Free Study</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fname" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="fphone" required placeholder="+1 234 567 890">
+                        </div>
+                        <div class="form-group">
+                            <label>Type of Asset / Fraud</label>
+                            <input type="text" id="ftype" required placeholder="Crypto (BTC/ETH/USDT), Forex Scam...">
+                        </div>
+                        <div class="form-group">
+                            <label>Brief Description</label>
+                            <textarea rows="3" id="fdesc" required placeholder="Please indicate if you have transaction hashes (TxID). Never share your private keys."></textarea>
+                        </div>
+                        <button type="submit" class="btn-blue" style="width: 100%; justify-content: center; font-size: 16px;">Send Inquiry via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="section bg-light">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-q">Can stolen cryptocurrencies be recovered?</div>
+                <div class="faq-a">Yes. Through blockchain forensic analysis, it is possible to trace the path of the funds and generate expert reports that can be used in legal proceedings.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-q">What should I do if I have been scammed with cryptocurrencies?</div>
+                <div class="faq-a">1. Save all transactions.<br>2. Identify the wallet.<br>3. Perform a blockchain forensic analysis.<br>4. File a police report.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-q">How long does a cryptocurrency fraud investigation take?</div>
+                <div class="faq-a">Between 20-30 days, but depending on the complexity of the case, the time may be longer.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-bottom">
+        <h2>Have you been a victim of a scam?</h2>
+        <p>Don't let time run out: start your recovery today.<br>Request your free feasibility study and receive a response in less than 24 hours.</p>
+        <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">Request Free Study Now ↗</a>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div style="max-width: 300px;">
+                <div class="brand" style="margin-bottom: 15px;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2621/2621040.png" alt="Logo" class="brand-logo" style="width:30px; height:30px;">
+                    <span class="brand-text" style="font-size:22px;">Recovera</span>
+                </div>
+                <p style="font-size: 13px;">We help individuals and companies trace suspicious operations, identify those responsible, and recover lost funds from cryptocurrency scams.</p>
+            </div>
+            <div class="footer-links">
+                <li><a href="#history">Our History</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Recovera Analytics S.L. © All rights reserved
+        </div>
+    </footer>
+
+    <!-- 悬浮 WhatsApp 客服 -->
+    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." class="whatsapp-float" target="_blank" title="Write to us on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const name = document.getElementById('fname').value;
+            const phone = document.getElementById('fphone').value;
+            const type = document.getElementById('ftype').value;
+            const desc = document.getElementById('fdesc').value;
+
+            const message = `Hello, I have been a victim of a scam and need help.\n\n` +
+                            `Name: ${name}\n` +
+                            `Phone: ${phone}\n` +
+                            `Fraud Type: ${type}\n` +
+                            `Description: ${desc}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = "19564044445";
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodedMessage}&type=phone_number&app_absent=0`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
