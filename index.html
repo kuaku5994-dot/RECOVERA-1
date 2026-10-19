@@ -42,8 +42,10 @@
             background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); z-index: 1000; 
         }
         .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        /* 你的Logo位置，替换 src */
+        
+        /* 这里改成了 logo.png */
         .brand-logo { width: 40px; height: 40px; object-fit: contain; }
+        
         .brand-text { font-family: var(--font-heading); font-size: 26px; font-weight: 700; letter-spacing: -1px; color: var(--text-main); }
         
         .nav-links { display: flex; gap: 20px; font-size: 14px; font-weight: 600; color: var(--text-gray); }
@@ -76,9 +78,23 @@
         .hero-visual h3 { font-size: 20px; margin-bottom: 10px; color: #fff; }
         .hero-visual p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 0; }
 
-        .btn-primary { background: #fff; color: var(--primary); padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; cursor: pointer; border: none; }
+        /* 按钮修复：SVG箭头 + 居中 */
+        .btn-primary { 
+            background: #fff; color: var(--primary); padding: 14px 28px; border-radius: 50px; 
+            font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; 
+            justify-content: center; text-align: center; gap: 8px; transition: 0.2s; 
+            cursor: pointer; border: none; line-height: 1.2; 
+        }
+        .btn-primary svg { flex-shrink: 0; width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.5; fill: none; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .btn-blue { background: var(--primary); color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; cursor: pointer; border: none; }
+
+        .btn-blue { 
+            background: var(--primary); color: #fff; padding: 14px 28px; border-radius: 50px; 
+            font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; 
+            justify-content: center; text-align: center; gap: 8px; transition: 0.2s; 
+            cursor: pointer; border: none; line-height: 1.2;
+        }
+        .btn-blue svg { flex-shrink: 0; width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.5; fill: none; }
         .btn-blue:hover { background: var(--primary-light); transform: translateY(-2px); }
 
         /* 通用区块 */
@@ -185,6 +201,7 @@
             .feature-content { padding: 30px 20px; }
             .evidence-banner { padding: 40px 20px; }
             .evidence-banner h2 { font-size: 28px; }
+            .btn-primary, .btn-blue { width: 100%; }
         }
     </style>
 </head>
@@ -193,7 +210,8 @@
     <!-- 顶部导航栏 -->
     <nav class="navbar">
         <a href="#home" class="brand">
-            <img src="logo.png" alt="Logo" class="brand-logo">
+            <!-- 已经改成引用同目录下的 logo.png -->
+            <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
             <span class="brand-text">Recovera</span>
         </a>
         
@@ -219,8 +237,10 @@
                     <div class="hero-tag">● Response in less than 24h</div>
                     <h1>Recover your stolen cryptocurrencies</h1>
                     <p><strong>Recover your cryptocurrencies with experts in tracing and scam investigation.</strong> If you have been a victim of a cryptocurrency scam, our team specialized in blockchain forensic analysis and transaction tracing investigates fraud, online scams, and digital asset theft to identify the flow of funds and generate technical reports that can be used in complaints and legal proceedings.</p>
-                    <!-- 所有按钮指向你的WhatsApp -->
-                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">Free Analysis – Recover Stolen Crypto ↗</a>
+                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">
+                        Free Analysis – Recover Stolen Crypto 
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                    </a>
                 </div>
                 <div class="hero-visual">
                     <h3>Forensic Analysis</h3>
@@ -304,18 +324,20 @@
         </div>
     </section>
 
-    <!-- ==================== 服务 (Services) - 补全了你刚发来的完整服务列表 ==================== -->
+    <!-- ==================== 服务 (Services) ==================== -->
     <section id="services">
         <div class="section">
             <div style="text-align: center; margin-bottom: 40px;">
                 <div class="service-badge">Legal Validity Reports</div>
                 <h2 class="section-title" style="font-size: 36px;">Digital Investigation, Forensic & Compliance Solutions</h2>
                 <p class="section-text" style="max-width: 800px; margin: 0 auto;">We unify blockchain technology, OSINT intelligence, and financial rigor to protect your assets and provide technical evidence with legal validity.</p>
-                <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20a%20free%20feasibility%20study%20for%20my%20case." target="_blank" class="btn-blue" style="margin-top: 20px;">Request Free Feasibility Study ↗</a>
+                <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20a%20free%20feasibility%20study%20for%20my%20case." target="_blank" class="btn-blue" style="margin-top: 20px;">
+                    Request Free Feasibility Study 
+                    <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                </a>
             </div>
 
             <div class="services-grid">
-                <!-- 服务 1 -->
                 <div class="service-card">
                     <div class="service-badge">Forensic Crypto</div>
                     <h3>Cryptocurrency Scam Investigation</h3>
@@ -328,7 +350,6 @@
                     </ul>
                 </div>
 
-                <!-- 服务 2 -->
                 <div class="service-card">
                     <div class="service-badge">Intelligence OSINT</div>
                     <h3>OSINT Investigations & Digital Attribution</h3>
@@ -341,7 +362,6 @@
                     </ul>
                 </div>
 
-                <!-- 服务 3 -->
                 <div class="service-card">
                     <div class="service-badge">Forex & Markets</div>
                     <h3>Forex and Online Trading Fraud</h3>
@@ -354,7 +374,6 @@
                     </ul>
                 </div>
 
-                <!-- 服务 4 -->
                 <div class="service-card">
                     <div class="service-badge">Online Gaming & Casinos</div>
                     <h3>Fund Recovery in Casinos and Online Gaming</h3>
@@ -400,7 +419,10 @@
                 <div class="feature-content">
                     <h3>Designed for your peace of mind</h3>
                     <p style="color: var(--text-gray); margin-bottom: 20px;">We know that facing a scam generates doubts and uncertainty. That's why we work with a network of collaborating firms that share a professional, transparent, and victim-oriented approach.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20to%20contact%20a%20professional%20lawyer." target="_blank" class="btn-blue" style="align-self: flex-start;">Contact a professional lawyer ↗</a>
+                    <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20need%20to%20contact%20a%20professional%20lawyer." target="_blank" class="btn-blue" style="align-self: flex-start;">
+                        Contact a professional lawyer 
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -435,7 +457,10 @@
                             <label>Brief Description</label>
                             <textarea rows="3" id="fdesc" required placeholder="Please indicate if you have transaction hashes (TxID). Never share your private keys."></textarea>
                         </div>
-                        <button type="submit" class="btn-blue" style="width: 100%; justify-content: center; font-size: 16px;">Send Inquiry via WhatsApp</button>
+                        <button type="submit" class="btn-blue" style="width: 100%; justify-content: center; font-size: 16px;">
+                            Send Inquiry via WhatsApp
+                            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -461,14 +486,18 @@
     <div class="cta-bottom">
         <h2>Have you been a victim of a scam?</h2>
         <p>Don't let time run out: start your recovery today.<br>Request your free feasibility study and receive a response in less than 24 hours.</p>
-        <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">Request Free Study Now ↗</a>
+        <a href="https://api.whatsapp.com/send/?phone=19564044445&text=Hello%2C%20I%20have%20been%20a%20victim%20of%20a%20scam%20and%20need%20help%20recovering%20my%20assets." target="_blank" class="btn-primary">
+            Request Free Study Now 
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
     </div>
 
     <footer>
         <div class="footer-grid">
             <div style="max-width: 300px;">
                 <div class="brand" style="margin-bottom: 15px;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2621/2621040.png" alt="Logo" class="brand-logo" style="width:30px; height:30px;">
+                    <!-- 页脚 Logo 也改成了 logo.png -->
+                    <img src="logo.png" alt="Logo" class="brand-logo" style="width:30px; height:30px;" onerror="this.style.display='none'">
                     <span class="brand-text" style="font-size:22px;">Recovera</span>
                 </div>
                 <p style="font-size: 13px;">We help individuals and companies trace suspicious operations, identify those responsible, and recover lost funds from cryptocurrency scams.</p>
